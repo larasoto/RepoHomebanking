@@ -1,0 +1,26 @@
+.navbar{
+    background-color: #9ba59f !important;
+}
+.botonSalir{
+    color: black !important;
+    border: none;
+}
+.contenedorDivNav{
+    background-color:#6c8375;
+}
+.contenedorDivNav>a{
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+body{
+    background-color: #f6f7f8;
+}
+.rojo{
+    
+    background-color: rgb(243, 178, 178) !important;
+}
+
+.verde{
+    background-color: rgb(191, 235, 191) !important;
+}

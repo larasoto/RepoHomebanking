@@ -1,0 +1,68 @@
+
+/* header */
+.navbar{
+    background-color: #9ba59f !important;
+}
+.botonSalir{
+    color: black !important;
+    border: none;
+}
+.contenedorDivNav{
+    background-color:#6c8375;
+}
+.contenedorDivNav>a{
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+/* header Fin */
+
+/* body */
+
+body{
+    background-color: #f6f7f8;
+}
+.infografia{
+height:100%; 
+margin: 0 auto;}
+
+.tarjetaDatos{
+    margin: 4rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.tarjetaDatos>.titulo{
+    background-color:#9ba59f ;
+}
+.contenedorCuentas{
+    margin-top: 4rem;
+    margin-left: 7rem;
+}
+.cuentas{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    border: 1px rgb(179, 175, 175) solid;
+  
+}
+.cuentas>h4{
+    background-color: #9ba59f ;
+}
+.prestamos{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    border: 1px rgb(179, 175, 175) solid;
+    margin-left: 4rem;
+   
+}
+.prestamos>h4{
+    background-color: #9ba59f ;
+}
+.verTransaccion{
+    text-decoration: none;
+    color: rgb(20, 22, 20);
+    border: 1px #6c8375 solid;
+    border-radius: 9px;
+}
+.eliminar{
+    background-color: rgb(207, 127, 127);
+    border-radius: 9px;
+}

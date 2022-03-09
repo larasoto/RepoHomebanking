@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #9ba59f !important;
+}
+.botonSalir{
+    color: black !important;
+    border: none;
+}
+.contenedorDivNav{
+    background-color:#6c8375;
+}
+.contenedorDivNav>a{
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+form{
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+    border: 1px rgb(114, 109, 109) solid;
+    border-radius: 7px;
+}
+.form{
+    margin-top: 13% !important;
+}
+form>input,label,select,button{
+    margin: 5px;
+    border-radius: 7px;
+}
+form>legend{
+background-color: #6c8375;
+}
+form>button{
+    border-radius: 7px;
+    background-color:#84a08f ;
+}
+body{
+    background-color: #f6f7f8;
+}

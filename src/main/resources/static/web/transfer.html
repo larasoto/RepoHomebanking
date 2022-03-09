@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <head>
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+       
+     
+   
+  <link rel="stylesheet" href="../css/transfer.css">
+  <title>Transacciones</title>
+</head>
+
+<body>
+  <div id="app" >
+  <header>
+    
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand " href="#">
+        <img src="../assets/bancologo.png" width="40" height="40" class="d-inline-block align-top " alt="">
+        Banco Mindhub
+      </a>
+      <button class="navbar-toggler botonSalir" @click="exit()">Salir <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+        <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+     </svg> </button>
+    </nav>
+    <div class="contenedorDivNav d-flex justify-content-around"> 
+        <a class="delNav" href="./transfer.html">Transacciones</a>
+        <a class="delNav" href="./accounts.html">Cuentas</a>
+       <a class="delNav" href="./cards.html">Tarjetas</a>
+          <a href="./postnet.html">Pagos</a>
+    </div>
+  </header>
+    <div class="transferenciaBody">
+  
+    <div class="contenedorTransaccion animate__animated animate__fadeInUp  d-flex justify-content-center form">
+    <form onsubmit="return false"  class="formTransaction ">
+      <legend class="d-flex justify-content-center legendT">Transacciones</legend>
+        <label for="">Tipo de cuenta:</label>
+        <input  type="checkbox" v-model="checkboxPropia"  @click="checkboxPropias()" class="padding">propia
+        <input  type="checkbox" v-model="checkboxTercero"  @click="checkboxTerceros()"  class="padding">tercero
+        <div>
+            <div>
+            Cuenta de origen:
+            <select name="" id="" v-model="select1"  @change="filtro()" class="padding">
+                <option value="">Tus cuentas</option>
+                <option v-for="account in accounts">{{account.number}}</option>
+            </select><p v-if="balances.length > 0">balance: ${{balances[0].balance}}</p></div>
+          <div>
+             <label for="" class="padding">Monto $</label>
+             <input class="inputTransaction" type="number" v-model="amount">
+            </div>
+             <div>
+             <label for="">Descripcion</label>
+             <input type="text" v-model="descripcion" class="inputTransaction">
+             </div>
+        </div>
+            <div v-show="checkboxPropia == true">
+              target account:
+             <select name="" id="" v-model="select2" class="padding">
+                 <option value="">Cuenta destino</option>
+                 <option v-for="account in accountsFiltradas">{{account.number}}</option>
+             </select></div>
+           <div v-show="checkboxTercero == true">
+            <div>
+                <label for="" >Destinity </label>
+                <input type="text" v-model="select2" class="padding">
+             </div>
+           </div>
+           <div  class="d-flex justify-content-center padding">
+               <button @click="transaccion()" >Realizar transaccion</button>
+           </div>
+          </form>
+</div></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../js/transfer.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>s
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,552 @@
+
+/* header{
+    height: 20vh;
+    background-color: #624B5E;
+} */
+
+.titulo{
+    background-color: #E95C00;
+    
+}
+
+pre{
+    background-color: white;
+}
+.table{
+    color: black;
+    background-color: white;
+}
+.cards{
+    display: flex;
+    justify-content:space-evenly;
+    margin: 2vh !important;
+    
+ 
+} 
+ .card1{
+    display: flex;
+    justify-content: center;
+    margin: 2vh;
+} 
+
+.rojo{
+    
+    background-color: rgb(243, 178, 178) !important;
+}
+
+.verde{
+    background-color: rgb(191, 235, 191) !important;
+}
+
+ .navbar{
+   background-color:#624B5E !important;
+   width: 100%;
+   margin: 0px !important;
+   padding: 0px !important;
+} 
+
+ .delNav{
+    
+    text-decoration: none !important;
+    color: white;
+} 
+.exit{
+    margin-top: 50vh;
+}
+.lis{
+    margin: 1vh;
+}
+.column{
+    width: 35vh !important;
+}
+
+ .carddatos{
+margin: 2vh;
+
+} 
+.cardsLoan{
+    height: 20vh;
+    width: 40vh;
+}
+
+.loans-container{
+    margin-top: 34vh !important;
+    margin-right: 50vh;
+  
+}
+.card-title{
+    color: white;
+}
+.datos{
+    height: 2vh !important;
+}
+.container{
+    width: 80vh !important;
+    height: 15vh !important;
+    margin-bottom: 40vh !important;
+    border: 1px black solid !important;
+    align-items: center !important;
+    box-shadow: 0 0 8px #7c7979;
+
+}
+
+*{
+  box-sizing:border-box;
+ 
+}
+
+body, html{
+  margin:0;
+  padding:0;
+  height: 100%;
+  width: 100%;
+}
+body{
+  display: flex;
+  display: -webkit-flex;
+
+  -webkit-flex-direction: column;
+}
+.title {
+    margin-bottom: 30px;
+    color: #162969;
+}
+
+
+.card{
+ border: none !important;
+  margin-top: 10vh;
+  margin: 1rem;
+width: 320px;
+height: 190px;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  perspective:600px;
+  background-color: transparent;
+  
+}
+
+.card__part{
+  box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+  position: absolute;
+z-index: 1000;
+  left: 0;
+  display: inline-block;
+    width: 320px;
+    height: 190px;
+    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879); /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+   
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__front{
+  padding: 18px;
+-webkit-transform: rotateY(0);
+-moz-transform: rotateY(0);
+}
+
+.card__back {
+  padding: 18px 0;
+-webkit-transform: rotateY(-180deg);
+-moz-transform: rotateY(-180deg);
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 38px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 16px;
+}
+
+.card__front-logo{
+      position: absolute;
+    top: 18px;
+    right: 18px;
+}
+.card__square {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card__space-75 {
+    width: 75%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 25%;
+    float: left;
+}
+
+.card__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+}
+
+.card__info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position:relative;
+}
+
+.card__secret:before{
+  content:'';
+  position: absolute;
+top: -3px;
+left: -3px;
+height: calc(100% + 6px);
+width: calc(100% - 42px);
+border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.card:hover .card__front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+
+}
+
+.card:hover .card__back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+}
+
+.titanium{
+    background-image: url('./assets/ColorTitanium.jpg'),linear-gradient(to right bottom, #6e6566ed, #969595, #6d6869, #646262, #575354);
+    color: black !important;
+    
+}
+
+.silver{
+    background-image: url('./assets/colorSilver.jpg'),linear-gradient(to right bottom, #C0C0C0 , #969595,#C0C0C0  , #C0C0C0 , #C0C0C0 );
+    color: black !important;
+    
+}
+.gold{
+    background-image: url('./assets/colorGold.jpg'),linear-gradient(to right bottom, #DAA520  , #e6c573 ,#f8d374   , #e0b957  , #997311  );
+    color: black !important;
+    
+}
+.selector{
+    display: flex;
+    justify-content: center;
+    border: 1px black solid;
+    padding: 1vh;
+    background-color:#b3a8b1 ;
+    margin-bottom: 5vh;
+    width: 90vh;
+    margin-left:50vh ;
+}
+    
+select{
+    width: 15vh;
+    margin-left: 2vh;
+}
+
+.imagen-tarjeta{
+    position: absolute;
+    margin-left: 110vh;
+   
+}
+.delLoan{
+    text-decoration: none !important;
+    color: inherit !important;
+    border: 1px black solid;
+    padding: 3px;
+     border-radius:15px ;
+    border-radius: 10px;
+}
+  
+ .delLoan:hover{
+   background-color:#624B5E !important;
+   
+ }
+ .inputAmount{
+     width: 50px;
+     height: 30px;
+ }
+ .buttonCreateCard{
+     width: 50vh;
+     background-color: #b3a8b1 ;
+     border: 1px black solid;
+     text-decoration: none !important;
+     color: inherit !important;
+ }
+ .formularioTarjeta{
+     border: 1px black solid;
+     width: 70vh;
+     
+ }
+ .contenFormulario{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-image: url(./assets/tarjetasDeBanco.jpg);
+     background-image: no-repeat;
+background-image: fixed;
+background-image: center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+      
+ }
+ .tituloCreated{
+    height: 5vh;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .titulosTypeColor{
+    background-color: #cea8c7;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .inputsRadio{
+    display: flex;
+    justify-content: center;
+    height: 4vh;
+    align-items: center;
+    background-color: white;
+ }
+ .buttonCreate{
+    background-color: rgb(154, 80, 224);
+ }
+ .contenedorCardDatos{
+    border: 1px black solid;
+     height: 20vh;width: 70vh;
+     margin: 2vh;
+ }
+ .tituloCardDato{
+   background-color: black;
+   border-radius: 10px;
+ }
+ .tarjetaCuenta{
+    width: 80vh;
+     border: 1px rgb(134, 126, 126) solid;
+     margin: 2vh;
+ }
+ .h4titulo{
+   background-color: #E95C00;
+    border-radius: 10px;
+ }
+ .tarjetabody{
+   border: 1px rgb(134, 126, 126) solid;
+   margin: 2vh;width: 80vh;
+
+ }
+ .tarjetatitulo{
+    background-color:#624B5E;
+    border-radius: 10px;
+ }
+
+  .transferenciaBody{
+   background: linear-gradient(rgba(255, 255, 255, 0.376), rgba(255, 255, 255, 0.767)),url(./assets/transferencias.jpg) ; 
+  background-image: no-repeat;
+        background-image: fixed;
+        background-image: center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 100%;
+
+ } 
+ .formTransaction{
+     background-color: white;
+     width: 20rem;
+     padding: 1rem;
+     border: 2px #575354 ridge;
+
+ }
+ .contenedorTransaccion{
+     width: 100%;
+     height: 35rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .legendT{
+     background-color: #E95C00 ;
+ }
+ .padding{
+     margin: 1vh;
+ }
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+ .containerNav{
+     margin-bottom: 20px;
+ }
+ 
+ .cardNav{
+   width:110%;
+   height: 100%;
+   background-color: #624B5E;
+   border-radius: 10px 10px;
+ }
+ 
+ .headerNav{
+   border-radius: 10px 10px 0px 0px;
+   padding: 5px;
+   background-color:  #E95C00;
+ }
+ 
+ .h3Nav{
+   color: #FFFFFF;
+   font-family: 'Roboto', sans-serif;
+   margin-left: 1rem;
+ }
+ 
+ .iconM{
+   font-size: 18px;
+   margin-left: 170px;
+   color: #2f89fc;
+ }
+ 
+ .icon{
+   margin-right: 3px;
+ }
+ 
+ .bodyNav li{
+   transition: 1s all;
+   font-family: 'Roboto', sans-serif;
+   font-size: 18px;
+   padding: 15px; 
+   margin-left: -30px;
+   margin-top: 0px;
+   color: #fff;
+   list-style: none;
+   display: block;
+   border-top-right-radius: 10px 10px;
+   border-bottom-right-radius: 10px 10px;
+ } 
+ 
+ li:hover{
+   transition: 1s all;
+   color: #2f89fc;
+   background-color: rgba(42, 56, 65, 0.82);
+   /* border-top-right-radius: 10px 10px;
+   border-bottom-right-radius: 10px 10px; */
+   cursor: pointer;
+ }
+ 
+ .bodyNav > li{
+   float: left;
+ }
+ 
+ .bodyNav li ul{
+   background: #1E2B32;
+   display: none;
+   position: absolute;
+   border-top-right-radius: 15px 15px;
+   border-bottom-right-radius: 15px 15px;
+ }
+ 
+ .caducada{
+  background:linear-gradient(rgba(124, 67, 112, 0.157), rgba(93, 92, 92, 0.767));
+  
+ }
+
+ .caducada > .card{
+   z-index: -3;
+ }
+ 
+ 
+ /* .bodyNav li:hover > ul{
+   display: block;
+   cursor: pointer;
+ } */
+
+
+/* .transferenciaBody{
+       background-image: url(./assets/transferencias.jpg);
+      
+      width: 100%;
+        height: 100%;
+}
+
+ /* .tarjetas{
+     background-image: url(./assets/tarjetas.jpg);
+      
+ 
+    
+ /* }*/
+ /* .transferenciaBody::before{
+      content: "";
+     width: 100%;
+     height: 100%;
+     background-color: white;
+     position: absolute;
+     opacity: 0.5; */
+   

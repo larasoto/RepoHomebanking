@@ -1,0 +1,63 @@
+
+header{
+    height: 15vh;
+    background-color: #6c8375;
+}
+.logo{
+    width: 40vh;
+    height: 15vh;
+}
+form{
+    padding: 10px;
+    box-shadow: 0 0 8px #7c7979;
+    border-radius: 10px;
+    background-color: rgb(230, 222, 222);
+    font-family:Arial, Helvetica, sans-serif;
+    width: 40%;
+    margin-top: 15vh;
+    margin-left: 5vh;
+
+}
+ .prestamos{
+     margin-top: 15vh !important;
+     width: 60vh !important;
+     height: 40vh !important;
+ }
+
+ .signin{
+     background-color:#6c8375 !important;
+     color: white;
+    height: 5vh;
+     width: 50% !important;
+ }
+
+.botones{
+    display: flex;
+    justify-content: start;
+
+}
+.register{
+    background-color:#9ba59f !important;
+    color: white;
+    border-radius: 5px;
+    width: 50%;
+}
+section{
+    background:linear-gradient(rgba(107, 110, 151, 0.157), rgba(93, 92, 92, 0.767)), url(./assets/nuevoInicio.png) ; 
+    background-image: no-repeat;
+          background-image: fixed;
+          background-image: center;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       height: 92vh
+}
+.tituloForm{
+    background-color:  #6c8375;
+    color: white;
+   margin-bottom: 2vh;
+}
+.contenedorForm{
+  
+}
