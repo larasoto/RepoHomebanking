@@ -21,7 +21,7 @@ var app = new Vue({
     },
     methods: {
       loadLoans() {
-        axios.get("http://localhost:8080/api/loans")
+        axios.get("/api/loans")
           .then((response) => {
             this.loans = response.data
           
@@ -65,7 +65,7 @@ var app = new Vue({
       
       .then((willDelete) => {
         if (willDelete) {
-            axios.post("http://localhost:8080/api/loans",{"amount":this.amount,"payments":this.cuotas,"accountDestiny":this.accountDestiny,"name":this.name})
+            axios.post("/api/loans",{"amount":this.amount,"payments":this.cuotas,"accountDestiny":this.accountDestiny,"name":this.name})
       .then((response)=>{
            swal("the transaction has been successfully completed", {  
             icon: "success",

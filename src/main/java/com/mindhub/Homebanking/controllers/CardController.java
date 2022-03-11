@@ -7,6 +7,9 @@ import com.mindhub.Homebanking.models.*;
 import com.mindhub.Homebanking.repositories.AccountRepository;
 import com.mindhub.Homebanking.repositories.CardRepository;
 import com.mindhub.Homebanking.repositories.ClientRepository;
+import com.mindhub.Homebanking.services.AccountService;
+import com.mindhub.Homebanking.services.CardService;
+import com.mindhub.Homebanking.services.ClientService;
 import com.mindhub.Homebanking.utils.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,21 +28,22 @@ import java.util.stream.Collectors;
 public class CardController {
 
     @Autowired
-    AccountRepository accountRepository;
+    CardService cardService;
 
     @Autowired
-    ClientRepository clientRepository;
+    ClientService clientService;
 
     @Autowired
-    CardRepository cardRepository;
+    AccountService accountService;
+
 
     @PostMapping("/clients/current/cards")
     public ResponseEntity<Object> registerCard(Authentication authentication,
             @RequestParam CardType type, @RequestParam CardColor color, @RequestParam String account) {
 
 
-        Client client = clientRepository.findByEmail(authentication.getName());
-        Account account1 = accountRepository.findByNumber(account);
+        Client client = clientService.findByClientEmail(authentication.getName());
+        Account account1 = accountService.findbyNumber(account);
 
 
         if ( client.getCards().stream().filter(card -> card.getStatus() == true).collect(Collectors.toList()).size() >= 6 ) {
@@ -52,21 +56,22 @@ public class CardController {
 
 
         Card card = new Card(client.getFirtName()+" "+ client.getLastName(),type,color,cardNumber,cvv,LocalDate.now().plusYears(5),LocalDate.now(),client, true,account1, account1.getBalance());
-        cardRepository.save(card);
+       cardService.saveCard(card);
         return new ResponseEntity<>("201 creada",HttpStatus.CREATED);
     }
 
     @PatchMapping("/clients/current/cards/{id}")
     public ResponseEntity<Object> PatchCard(
       @PathVariable long id, @RequestParam Boolean status){
-            Card cards = cardRepository.findById(id).orElse(null);
+
+        Card cards = cardService.finbyID(id);
             cards.setStatus(status);
-            cardRepository.save(cards);
+           cardService.saveCard(cards);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @RequestMapping("/clients/current/cards")
     public List<CardDTO> getCards(Authentication authentication){
-        Client client = clientRepository.findByEmail(authentication.getName());
+        Client client = clientService.findByClientEmail(authentication.getName());
         return client.getCards().stream().map(CardDTO::new).collect(Collectors.toList());
     }
     }

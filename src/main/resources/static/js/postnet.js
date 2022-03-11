@@ -38,7 +38,7 @@ var app = new Vue ({
 
          },
          postnet(){
-             axios.post("http://localhost:8080/api/transactions/postnet",{"number":this.number,"amount":this.monto,"description":this.descripcion,"accountDestiny":this.accountDestiny,"cvv":this.cvv})
+             axios.post("/api/transactions/postnet",{"number":this.number,"amount":this.monto,"description":this.descripcion,"accountDestiny":this.accountDestiny,"cvv":this.cvv})
              .then((response)=>{
                  console.log(response)
                  window.location.reload()

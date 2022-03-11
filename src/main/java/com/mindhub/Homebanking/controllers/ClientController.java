@@ -7,6 +7,8 @@ import com.mindhub.Homebanking.dtos.ClienDTO;
 import com.mindhub.Homebanking.models.*;
 import com.mindhub.Homebanking.repositories.AccountRepository;
 import com.mindhub.Homebanking.repositories.ClientRepository;
+import com.mindhub.Homebanking.services.AccountService;
+import com.mindhub.Homebanking.services.ClientService;
 import org.apache.catalina.User;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,7 +35,7 @@ import static java.util.stream.Collectors.toList;
 public class ClientController {
 
     @Autowired
-    ClientRepository clientRepository;
+    AccountService accountService;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -41,16 +43,17 @@ public class ClientController {
     @Autowired
     AccountRepository accountRepository;
 
+    @Autowired
+    ClientService clientService;
+
     @RequestMapping("/clients")
     public List<ClienDTO> getClients() {
-        List<ClienDTO> clients = clientRepository.findAll().stream().map(client -> new ClienDTO(client)).collect(Collectors.toList());
-        return clients;
+        return clientService.getClients();
     }
 
     @RequestMapping("clients/{id}")
     public ClienDTO getClient(@PathVariable Long id) {
-        ClienDTO client = new ClienDTO(clientRepository.findById(id).orElse(null));
-        return client;
+      return clientService.getClient(id);
     }
 
 
@@ -65,7 +68,7 @@ public class ClientController {
             return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
         }
 
-        if (clientRepository.findByEmail(email) != null) {
+        if (clientService.findByClientEmail(email) != null) {
             return new ResponseEntity<>("Name already in use", HttpStatus.FORBIDDEN);
         }
 
@@ -76,15 +79,16 @@ public class ClientController {
         Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password));
         Account account = new Account("VIN000"+accountRandom, LocalDateTime.now(),0.0,client,true, AccountType.CAJA_AHORRO);
 
-        clientRepository.save(client);
-        accountRepository.save(account);
+        //clientRepository.save(client);
+        clientService.saveClient(client);
+        accountService.saveAccount(account);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 
     @RequestMapping("/clients/current")
     public ClienDTO getAll(Authentication authentication) {
-        return new ClienDTO(clientRepository.findByEmail(authentication.getName()));
+        return clientService.findByEmail(authentication.getName());
     }
 
 

@@ -7,6 +7,9 @@ import com.mindhub.Homebanking.models.*;
 import com.mindhub.Homebanking.repositories.AccountRepository;
 import com.mindhub.Homebanking.repositories.ClientRepository;
 import com.mindhub.Homebanking.repositories.TransactionRepository;
+import com.mindhub.Homebanking.services.AccountService;
+import com.mindhub.Homebanking.services.ClientService;
+import com.mindhub.Homebanking.services.TransactionService;
 import org.hibernate.tool.schema.extract.spi.ExtractionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,16 +32,13 @@ import java.util.stream.Collectors;
 public class TransacctionController {
 
     @Autowired
-    AccountRepository accountRepository;
+    AccountService accountService;
 
     @Autowired
-    ClientRepository clientRepository;
+    ClientService clientService;
 
     @Autowired
-    TransactionRepository transactionRepository;
-
-    @Autowired
-    TransactionServices transactionServices;
+    TransactionService transactionService;
 
     @Transactional
     @PostMapping("/transactions")
@@ -46,9 +46,9 @@ public class TransacctionController {
                                               @RequestParam Double amount, @RequestParam String description,
                                               @RequestParam String accountOrigen, @RequestParam String accountDestiny) {
 
-        Client client = clientRepository.findByEmail(authentication.getName());
-        Account accountorigen = accountRepository.findByNumber(accountOrigen);
-        Account accountdestino = accountRepository.findByNumber(accountDestiny);
+        Client client = clientService.findByClientEmail(authentication.getName());
+        Account accountorigen = accountService.findbyNumber(accountOrigen);
+        Account accountdestino =accountService.findbyNumber(accountDestiny);
 
         if (amount == null || description.isEmpty() || accountOrigen == null || accountDestiny == null) {
             return new ResponseEntity<>("Data is empty", HttpStatus.FORBIDDEN);
@@ -57,14 +57,14 @@ public class TransacctionController {
             return new ResponseEntity<>("you cannot transfer to the same account", HttpStatus.FORBIDDEN);
         }
 
-        if (accountRepository.findByNumber(accountOrigen) == null) {
+        if ( accountService.findbyNumber(accountOrigen) == null) {
             return new ResponseEntity<>("the source account does not exist", HttpStatus.FORBIDDEN);
         }
         if (client.getAccounts().stream().filter(account -> account.getNumber().equals(accountOrigen)) == null) {
             return new ResponseEntity<>("Name already in use", HttpStatus.FORBIDDEN);
 
         }
-        if (accountRepository.findByNumber(accountDestiny) == null) {
+        if ( accountService.findbyNumber(accountDestiny)== null) {
             return new ResponseEntity<>("the destination account does not exist", HttpStatus.FORBIDDEN);
         }
         if (amount > accountorigen.getBalance()) {
@@ -73,18 +73,18 @@ public class TransacctionController {
 
         Transaction transaction1 = new Transaction(TransactionType.DEBIT, -amount,description, LocalDateTime.now(),accountorigen);
         Transaction transaction2 = new Transaction(TransactionType.CREDIT,amount,description,LocalDateTime.now(),accountdestino);
-        transactionRepository.save(transaction1);
-        transactionRepository.save(transaction2);
+        transactionService.saveTransaction(transaction1);
+       transactionService.saveTransaction(transaction2);
 
         accountorigen.setBalance(accountorigen.getBalance() - amount);
         accountdestino.setBalance(accountdestino.getBalance() + amount);
 
-        accountRepository.save(accountorigen);
-        accountRepository.save(accountdestino);
+        accountService.saveAccount(accountorigen);
+      accountService.saveAccount(accountdestino);
         return new ResponseEntity<>("201 creada",HttpStatus.CREATED);
 
     }
-    @GetMapping("/users/export/pdf")
+    /*@GetMapping("/users/export/pdf")
     public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
         response.setContentType("application/pdf");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");

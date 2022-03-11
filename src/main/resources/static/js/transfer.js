@@ -17,7 +17,7 @@ var app = new Vue ({
     },
     methods:{
         loadAccounts(){
-            axios.get("http://localhost:8080/api/clients/current/accounts")
+            axios.get("/api/clients/current/accounts")
             .then((response)=>{
                 this.accounts = response.data
                 console.log(this.accountsFiltradas)

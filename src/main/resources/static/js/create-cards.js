@@ -19,7 +19,7 @@ var app = new Vue({
   },
   methods:{
      loadData() {
-      axios.get("http://localhost:8080/api/clients/current")
+      axios.get("/api/clients/current")
         .then((response) => {
           this.cards = response.data.cards;
           this.filtradosTrue=this.cards.filter(card => card.status == true );

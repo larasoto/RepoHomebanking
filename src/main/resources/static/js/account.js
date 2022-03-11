@@ -19,7 +19,7 @@ var app = new Vue({
   methods: {
     loadData() {
 
-      axios.get(`http://localhost:8080/api/accounts/${this.id}`)
+      axios.get(`/api/accounts/${this.id}`)
 
         .then((response) => {
 

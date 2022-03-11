@@ -1,11 +1,9 @@
 package com.mindhub.Homebanking.models;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,6 +12,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+
     private String firtName;
     private String lastName;
     private String email;
@@ -31,13 +30,14 @@ public class Client {
     public Client() {
     }
 
-
-    public Client( String firtName, String lastName, String email, String password) {
+    public Client(String firtName, String lastName, String email, String password) {
         this.firtName = firtName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
+
+
 
     public long getId() {
         return id;
