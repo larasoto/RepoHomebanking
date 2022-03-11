@@ -5,10 +5,12 @@ import com.mindhub.Homebanking.models.Transaction;
 import com.mindhub.Homebanking.repositories.TransactionRepository;
 import com.mindhub.Homebanking.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
     @Autowired

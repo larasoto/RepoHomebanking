@@ -5,10 +5,12 @@ import com.mindhub.Homebanking.models.Loan;
 import com.mindhub.Homebanking.repositories.LoanRepository;
 import com.mindhub.Homebanking.services.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class LoanServiceImpl implements LoanService {
 
     @Autowired
