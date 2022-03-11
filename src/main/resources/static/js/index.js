@@ -34,11 +34,9 @@ var app = new Vue({
       botonRegistro(){
           if(this.registro == true){
               this.registro = false
-          }}
-      },
+          }},
         Register(){
             axios.post('/api/api/clients',"firstName="+this.firstName+"&lastName="+this.lastName+"&email="+this.email+"&password="+this.password )
-           
             .then(response =>  this.loginData()) 
              .catch(error => {
                 swal({
@@ -51,7 +49,6 @@ var app = new Vue({
             })
            
         }
-
-             )}})
+)}}})
  
  
