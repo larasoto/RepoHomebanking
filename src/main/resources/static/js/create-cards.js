@@ -36,7 +36,7 @@ var app = new Vue({
     createCards(){
       axios.post('/api/clients/current/cards', "type=" + this.type + "&color=" + this.color + "&account=" + this.selectAccount)
         .then(response => {
-          window.location.href = "http://localhost:8080/web/cards.html"
+          window.location.href = "/web/cards.html"
           console.log(response.status)
 
         })
