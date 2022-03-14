@@ -50,6 +50,9 @@ public class TransacctionController {
         Account accountorigen = accountService.findbyNumber(accountOrigen);
         Account accountdestino =accountService.findbyNumber(accountDestiny);
 
+        if(amount <= 0){
+            return new ResponseEntity<>("valor incorrecto", HttpStatus.FORBIDDEN);
+        }
         if (amount == null || description.isEmpty() || accountOrigen == null || accountDestiny == null) {
             return new ResponseEntity<>("Data is empty", HttpStatus.FORBIDDEN);
         }

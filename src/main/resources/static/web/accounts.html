@@ -30,7 +30,7 @@
         </svg> </button>
     </nav>
     
-    <div class="contenedorDivNav d-flex justify-content-around">
+    <div class="contenedorDivNav d-flex justify-content-around" >
       <a class="delNav" href="./transfer.html">Transacciones</a>
       <a class="delNav" href="./accounts.html">Cuentas</a>
       <a class="delNav" href="./cards.html">Tarjetas</a>
@@ -65,17 +65,17 @@
                   </svg>
                 </div>
                 <div class=" ">
-                  <div>
-                    <h4 class="card-title">Nombre y apellido: {{clients.firtName}} {{clients.lastName}}</h5>
-                      <h5 class="card-title">Email: {{clients.email}}</h5>
-                      <h5>Prestamos solicitados: {{loans.length}}</h5>
-                      <h5>Cuentas disponibles: {{filtradosTrue.length}}</h5>
+                  <div >
+                    <h4 v-cloak class="card-title">Nombre y apellido: {{clients.firtName}} {{clients.lastName}}</h5>
+                      <h5 v-cloak class="card-title">Email: {{clients.email}}</h5>
+                      <h5 v-cloak>Prestamos solicitados: {{loans.length}}</h5>
+                      <h5 v-cloak>Cuentas disponibles: {{filtradosTrue.length}}</h5>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="animate__animated animate__fadeInUp">
+            <div class="animate__animated animate__fadeInUp" >
               <h3 class="d-flex justify-content-center">Tus prestamos <a href="../web/loan-application.html"><img
                     src="../assets/add_insert_new_plus_button_icon_142943.png" alt=""></a></h3>
               <div v-if="loans.length != 0" @change="division()">
@@ -83,10 +83,10 @@
                   <div class="cardloan">
                     <div class="card-body tarjetabody prestamos" style="width: 27rem;">
                       <h4 class="card-title d-flex justify-content-center"> Prestamo: {{loan.name}}</h5>
-                        <h6 class="card-text">Monto: ${{loan.amount}}</h6>
-                        <p class="card-text">Cuotas: {{loan.payments}}</p>
-                        <p><b>Interes: </b> <b> ${{(loan.amount*0.2).toFixed(2)}}</b></p>
-                        <p><b> Cuota mensual: ${{(loan.amount / loan.payments).toFixed(2)}}</b></p>
+                        <h6 v-cloak class="card-text">Monto: ${{loan.amount}}</h6>
+                        <p v-cloak class="card-text">Cuotas: {{loan.payments}}</p>
+                        <p v-cloak ><b>Interes: </b> <b> ${{(loan.amount*0.2).toFixed(2)}}</b></p>
+                        <p v-cloak ><b> Cuota mensual: ${{(loan.amount / loan.payments).toFixed(2)}}</b></p>
                     </div>
                   </div>
                 </div>
@@ -129,11 +129,11 @@
             </div>
             <div v-for="account in accounts" class="animate__animated animate__fadeInUp">
               <div class="card-body tarjetaCuenta cuentas" v-show="account.accountStatus == true ">
-                <h4 class="card-title h4titulo d-flex justify-content-center ">{{account.accountType.replace("_", " ")}}
+                <h4 v-cloak class="card-title h4titulo d-flex justify-content-center ">{{account.accountType.replace("_", " ")}}
                 </h4>
-                <h5 class="card-text">{{account.number}}</h5>
-                <h6 class="card-text"><b> Fecha de creacion:</b> {{account.createdData}}</h6>
-                <h6 class="card-text"> Balance: ${{account.balance}}</h6>
+                <h5 v-cloak class="card-text">{{account.number}}</h5>
+                <h6 v-cloak class="card-text"><b> Fecha de creacion:</b> {{account.createdData}}</h6>
+                <h6 v-cloak class="card-text"> Balance: ${{account.balance}}</h6>
                 <div><a class="verTransaccion" :href="'./account.html?id='+account.id">ver transacciones</a>
                   <button class="eliminar" @click="patchAccount(account.id)"
                     v-show="account.accountStatus == true ">Eliminar</button>

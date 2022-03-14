@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity //crea una tabla en la base de datos
 public class Account {
-    @Id
+    @Id //propiedad primaria de la clase
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;

@@ -24,3 +24,8 @@ body{
 .verde{
     background-color: rgb(191, 235, 191) !important;
 }
+
+[v-cloak]{  
+    display:none;
+
+}

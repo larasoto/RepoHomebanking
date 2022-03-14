@@ -30,11 +30,11 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
-@RestController
+@RestController //es un controlador que escucha y responde peticiones basandose en la arquitectura de rest
 @RequestMapping("/api")
 public class ClientController {
 
-    @Autowired
+    @Autowired //a traves de una inyeccion de dependecia
     AccountService accountService;
 
     @Autowired

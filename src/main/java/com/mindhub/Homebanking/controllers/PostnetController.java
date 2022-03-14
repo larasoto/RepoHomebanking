@@ -41,7 +41,9 @@ public class PostnetController {
         Account account = accountService.findbyNumber(card.getAccount().getNumber());
         Account account1 = accountService.findbyNumber(postnet.getAccountDestiny());
 
-
+        if(postnet.getAmount() <= 0){
+            return new ResponseEntity<>("el valor es incorrecto", HttpStatus.FORBIDDEN);
+        }
 
         if ( card.getCvv() != postnet.getCvv()|| postnet.getAmount().isNaN() || postnet.getDescription() == "") {
             return new ResponseEntity<>("los datos son incorrectos", HttpStatus.FORBIDDEN);

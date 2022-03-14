@@ -66,3 +66,7 @@ margin: 0 auto;}
     background-color: rgb(207, 127, 127);
     border-radius: 9px;
 }
+[v-cloak]{  
+    display:none;
+
+}

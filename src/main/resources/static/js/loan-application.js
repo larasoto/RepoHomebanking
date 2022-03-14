@@ -71,10 +71,10 @@ var app = new Vue({
             icon: "success",
           });
           window.location.reload()
+      }) .catch((error) =>{
+         swal("Los datos son incorrectos");
       })   
-        } else {
-          swal("Your imaginary file is safe!");
-        }
+        }     
       })
   //     axios.post(,)
   //     .then((response)=>{

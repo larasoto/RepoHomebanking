@@ -55,6 +55,9 @@ public class LoanController {
        Account account = accountService.findbyNumber(loanApplicationDTO.getAccountDestiny());
        Loan loan = loanService.findbyName(loanApplicationDTO.getName());
 
+       if(loanApplicationDTO.getAmount()<=0){
+           return new ResponseEntity<>("el valor es menor",HttpStatus.FORBIDDEN);
+       }
         if(loanApplicationDTO.getAmount() == 0 || loanApplicationDTO.getPayments() == 0 || loanApplicationDTO.getAmount() == null || loanApplicationDTO.getPayments() == null ){
         return new ResponseEntity<>("invalid data",HttpStatus.FORBIDDEN);}
 
