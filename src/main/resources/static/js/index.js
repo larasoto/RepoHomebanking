@@ -11,10 +11,8 @@ var app = new Vue({
     methods: {
       loginData() {
         axios.post('/api/login',"email="+this.email+"&password="+this.password)
-         
           .then((response) => {
            window.location.href ="/web/accounts.html"
-          
 
           })
           .catch((error) => {
@@ -28,7 +26,6 @@ var app = new Vue({
               })
             
 }
-            
           })
       },
       botonRegistro(){

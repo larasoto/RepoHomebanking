@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../css/loanapplication.css">
+    <link rel="stylesheet" href="../css/loanapplication.css">
 
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand " href="#">
-            <img src="../assets/bancologo.png" width="40" height="40" class="d-inline-block align-top " alt="">
-            Banco Mindhub
-          </a>
-          <button class="navbar-toggler botonSalir" @click="exit()">Salir <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
-            <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
-         </svg> </button>
+            <a class="navbar-brand " href="#">
+                <img src="../assets/bancologo.png" width="40" height="40" class="d-inline-block align-top " alt="">
+                Banco Mindhub
+            </a>
+            <button class="navbar-toggler botonSalir" @click="exit()">Salir <svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                    <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                </svg> </button>
         </nav>
-        <div class="contenedorDivNav d-flex justify-content-around"> 
+        <div class="contenedorDivNav d-flex justify-content-around">
             <a class="delNav" href="./transfer.html">Transacciones</a>
             <a class="delNav" href="./accounts.html">Cuentas</a>
-           <a class="delNav" href="./cards.html">Tarjetas</a>  
-           <a href="./postnet.html">Pagos</a> 
+            <a class="delNav" href="./cards.html">Tarjetas</a>
+            <a href="./postnet.html">Pagos</a>
         </div>
-      </header>
+    </header>
     <div id="app">
         <div class="d-flex justify-content-center animate__animated animate__fadeInUp align-items-center form">
-    <form  onsubmit="return false">
-        <legend class="d-flex justify-content-center legendT"> Creacion de prestamos</legend>
-        <label for="">monto</label>
-        <input v-model="maxAmount" type="number">
-        <label for="">cuota</label>
-        <input v-model="cuota1"  type="text">
-        <button  @click="agregarCuenta(cuota1)">confirmar Cuotas</button>
-        <label for="">nombre</label>
-        <input v-model="name" type="text">
-        <button type="submit" @click="creationLoan()">crear</button>
-    </form>
-</div>
-</div>
+            <form onsubmit="return false">
+                <legend class="d-flex justify-content-center legendT"> Creacion de prestamos</legend>
+                <label for="">monto</label>
+                <input v-model="maxAmount" type="number">
+                <label for="">cuota</label>
+                <input v-model="cuota1" type="text">
+                <button @click="agregarCuenta(cuota1)">confirmar Cuotas</button>
+                <label for="">nombre</label>
+                <input v-model="name" type="text">
+                <button type="submit" @click="creationLoan()">crear</button>
+            </form>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../js/createdLoan.js"></script>
 </body>
+
 </html>
