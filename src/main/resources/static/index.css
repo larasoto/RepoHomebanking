@@ -18,6 +18,22 @@ form{
     margin-left: 5vh;
 
 }
+
+@media all and (min-width: 200px) and (max-width: 740px){
+
+    form{
+        margin-left: 0vh;
+        width: 100%;
+    }
+    header{
+        height: 10vh;
+    }
+    .logo{
+        width: 25vh;
+        height: 7vh;
+    }
+
+}
  .prestamos{
      margin-top: 15vh !important;
      width: 60vh !important;

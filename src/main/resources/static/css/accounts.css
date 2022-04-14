@@ -68,5 +68,28 @@ margin: 0 auto;}
 }
 [v-cloak]{  
     display:none;
+}
 
+@media all and (min-width: 200px ) and (max-width: 700px){
+    .contenedorDivNav{
+        display: flex;
+        flex-wrap: wrap;
+    }
+   
+    .contenedorDivNav>a{
+        text-decoration: none;
+        color: white;
+        font-size:20px;
+        padding: 10px;
+    }
+    .infografia{
+          display: none;
+    }
+    .tarjetaDatos{
+
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        font-size: 10px;
+    }
+   
 }
